@@ -14,3 +14,6 @@ Currently, the app features words in "Yoruba Ajulomo," the commonly spoken form.
 Fyd started as a fun excuse to use my mic, code with AI and give back to the universe of free resources. I love languages so it only made sense that my first official dev project was this. 
 
 Enjoy :)
+
+## Bigger Picture
+Fyd is only an atom of a big matter that aims to make Nigerian languages accessible and free for all to learn. Could creating an extensive library for lessons, dictionaries and practice materials for over 500 Nigerian langugages make a social impact? I guess you (hello future teammate) and I are about to find out.
