@@ -250,6 +250,8 @@
             <span class="menu-icon">☰</span> Menu
             <div class="menu-content">
                 <a href="#á" class="active">Dictionary</a>
+                <a href="backstory.html">Backstory</a>
+                <a href="copyright.html">Copyright</a>
             </div>
         </div>
         <div class="theme-toggle" id="theme-toggle">
@@ -603,20 +605,28 @@
     });
 
     const navLinks = document.querySelectorAll('.menu-content a');
-    const sections = document.querySelectorAll('.dictionary-section');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function (e) {
+const sections = document.querySelectorAll('.dictionary-section');
+
+navLinks.forEach(link => {
+    link.addEventListener('click', function (e) {
+        // Check if the link is pointing to an ID within the current page
+        const targetId = this.getAttribute('href');
+        const isInternalLink = targetId.startsWith('#');
+
+        if (isInternalLink) {
             e.preventDefault();
             navLinks.forEach(nav => nav.classList.remove('active'));
             this.classList.add('active');
-            const target = document.querySelector(this.getAttribute('href'));
+            const target = document.querySelector(targetId);
             sections.forEach(section => section.style.display = 'none');
             target.style.display = 'block';
             document.querySelector('.menu-content').classList.remove('show');
             document.querySelector('.menu-icon').textContent = '☰';
             document.querySelector('body').style.overflow = 'auto';
-        });
+        }
     });
+});
+
 
     // Toggle between light and dark themes
     document.getElementById("theme-toggle").addEventListener("click", function() {
