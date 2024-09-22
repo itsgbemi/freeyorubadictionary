@@ -1,0 +1,266 @@
+:root {
+  --background-color: hsl(0, 0%, 98%);
+  --text-color: hsl(200, 15%, 8%);
+  --light-blue: hsl(210, 100%, 90%);
+  --dark-blue: hsl(209, 23%, 22%);
+}
+
+html, body {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: 'DM Sans', sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 0;
+  width: 100%;
+}
+
+/* Desktop Header */
+.desktop-header, .mobile-header {
+  display: none;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.logo span {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text-color);
+}
+
+.desktop-header .logo, .mobile-header .logo {
+  flex: 0;
+  display: flex;
+  align-items: center;
+  margin-right: 5px;
+}
+
+.desktop-header .logo img {
+  width: 40px;
+  height: 40px;
+  margin-right: 8px;
+}
+
+.mobile-header .logo img {
+  width: 30px;
+  height: 30px;
+  margin-right: 8px;
+}
+
+.desktop-nav, .mobile-nav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.desktop-nav a, .mobile-nav a {
+  text-decoration: none;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+}
+
+.mobile-nav a {
+  margin: 0 15px;
+}
+
+.desktop-nav a {
+  margin: 0 35px;
+  font-size: 18px;
+}
+
+
+.desktop-nav a img, .mobile-nav a img {
+  width: 20px;
+  margin-right: 8px;
+}
+
+.theme-switcher {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  cursor: pointer;
+  padding-left: 5px;
+}
+
+.theme-switcher img {
+  width: 24px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+  --background-color: hsl(207, 26%, 17%);
+  --text-color: hsl(0, 0%, 100%);
+}
+
+body.dark-mode .theme-switcher img {
+  transform: rotate(180deg);
+  opacity: 0.8;
+}
+
+/* Mobile Header */
+.mobile-header {
+  display: flex;
+}
+
+.loader {
+  position: fixed; /* Keeps it in view */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust for its own size */
+  border: 12px solid #f3f3f3; /* Light grey */
+  border-top: 12px solid var(--light-blue); /* Blue */
+  border-radius: 50%;
+  width: 80px; /* Adjust size */
+  height: 80px; /* Adjust size */
+  animation: spin 1s linear infinite;
+  display: none; /* Initially hidden */
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+#dictionary {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns on desktop */
+  gap: 20px; /* Space between entries */
+  margin: 20px 0;
+}
+
+.word-entry {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.play-icon {
+  width: 30px; /* Fixed width */
+  height: 30px; /* Fixed height */
+  background-color: hsl(210, 100%, 90%); /* Light blue background */
+  border-radius: 50%; /* Circular shape */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer; /* Pointer cursor */
+  margin-right: 10px; /* Space between icon and text */
+}
+
+.play-icon img {
+  width: 15px; /* Adjust icon size */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.word-info {
+  flex: 1; /* Allow word info to take remaining space */
+}
+
+.word {
+  font-weight: 800; /* Bold for word */
+}
+
+.phonetics {
+  font-weight: 500; /* Medium for phonetics */
+  margin: 0 5px; /* Space between phonetics and definition */
+}
+
+.definition {
+  font-weight: 300; /* Light for definition */
+}
+
+
+/* Footer Styles */
+footer {
+  display: flex;
+  margin-top: auto;
+  justify-content: space-between;
+  padding: 20px 0;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+footer img {
+  width: 30px;
+}
+
+/* Search Styles */
+#search-container {
+  display: flex;
+  position: relative; /* Position relative for absolute positioning of the icon */
+  max-width: 800px; /* Limit maximum width */
+  margin: 10px auto; /* Center the container */
+  justify-content: center; /* Center the container */
+  align-items: center;
+}
+
+#search-input {
+  max-width: 100%; /* Full width */
+  padding: 10px 40px 10px 20px; /* Add padding for text and icon */
+  background-color: var(--background-color);
+  border: 2px solid var(--light-blue); /* Light-blue border */
+  border-radius: 25px; /* Rounded corners */
+  outline: none;
+  font-size: 16px; /* Adjust font size */
+  color: var(--text-color)
+}
+
+#search-icon {
+  position: absolute; /* Position the icon */
+  right: 10px; /* Position it to the left */
+  top: 50%; /* Center it vertically */
+  transform: translateY(-50%); /* Adjust vertical alignment */
+  margin-left: -20px;
+  cursor: pointer;
+}
+
+#search-container img {
+  width: 20px; /* Set icon width */
+  height: 20px; /* Set icon height */
+}
+
+#no-results-message {
+  display: none;
+  text-align: center; /* Center the text */
+  margin-top: 20px; /* Add some spacing above */
+  font-size: 18px; /* Adjust font size as needed */
+  color: var(--text-color); /* Use your existing color variable */
+}
+
+
+/* Mobile Styles */
+@media (max-width: 767px) {
+  #dictionary {
+    grid-template-columns: 1fr; /* Stack on mobile */
+  }
+  header {
+    padding: 20px 0;
+  }
+}
+
+
+/* Desktop Styles */
+@media (min-width: 768px) {
+  .desktop-header {
+    display: flex;
+  }
+
+  .mobile-header {
+    display: none;
+  }
+}
