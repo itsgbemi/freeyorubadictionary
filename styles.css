@@ -251,6 +251,9 @@ footer img {
   header {
     padding: 20px 0;
   }
+  footer img {
+    width: 24px;
+  }
 }
 
 
